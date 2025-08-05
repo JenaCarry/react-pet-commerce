@@ -1,13 +1,12 @@
-const express = require("express");
-const path = require("path");
-const fs = require("fs");
-const { error } = require("console");
+import express from "express";
+import { join } from "path";
+import { readFileSync } from "fs";
 
 const app = express();
 
 const readDatabase = () => {
-    const dbPath = path.join(process.cwd(), "db.json");
-    const fileData = fs.readFileSync(dbPath, "utf-8");
+    const dbPath = join(process.cwd(), "db.json");
+    const fileData = readFileSync(dbPath, "utf-8");
     return JSON.parse(fileData);
 };
 
@@ -39,4 +38,4 @@ app.get("/api/products/:id", (req, res) => {
     }
 });
 
-module.exports = app;
+export default app;
