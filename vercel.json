@@ -2,24 +2,24 @@
     "version": 2,
     "builds": [
         {
-            "src": "package.json",
+            "source": "package.json",
             "use": "@vercel/static-build",
             "config": {
                 "distDir": "dist"
             }
         },
         {
-            "src": "api/index.js",
+            "source": "api/index.js",
             "use": "@vercel/node"
         }
     ],
     "rewrites": [
         {
-            "src": "/api/(.*)",
+            "source": "/api/(.*)",
             "dest": "/api/index.js"
         },
         {
-            "src": "/(.*)",
+            "source": "/(.*)",
             "dest": "/index.html"
         }
     ]
