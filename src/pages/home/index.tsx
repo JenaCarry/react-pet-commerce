@@ -22,9 +22,6 @@ export function Home() {
         async function getProducts() {
             try {
                 const response = await api.get("/products");
-                
-                console.log(response.data);
-
                 setProducts(response.data);
                 setLoading(false);
             } catch (error) {
