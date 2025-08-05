@@ -17,9 +17,7 @@ export function ProductDetail() {
         async function getProductDetail() {
             try {
                 const response = await api.get(`/products/${id}`);
-                if (response) {
-                    setProductDetail(response.data);
-                }
+                setProductDetail(response.data);
             } catch (error) {
                 console.log("Erro ao carregar detalhes do produto.", error);
                 setHasProduct(false);

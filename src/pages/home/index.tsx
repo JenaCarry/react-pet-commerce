@@ -22,10 +22,11 @@ export function Home() {
         async function getProducts() {
             try {
                 const response = await api.get("/products");
-                if (response) {
-                    setProducts(response.data);
-                    setLoading(false);
-                }
+                
+                console.log(response.data);
+
+                setProducts(response.data);
+                setLoading(false);
             } catch (error) {
                 console.log("Erro ao buscar produtos.", error);
             }
