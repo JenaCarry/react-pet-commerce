@@ -4,9 +4,11 @@ import type { ProductProps } from "../pages/home";
 interface CartContextData {
     cart: CartProps[];
     cartAmount: number;
+    total: number;
     addItemCart: (newItem: ProductProps) => void;
     removeItemCart: (newItem: CartProps) => void;
     deleteItemCart: (newItem: CartProps) => void;
+    clearOrder: () => void;
 }
 
 export interface CartProps {

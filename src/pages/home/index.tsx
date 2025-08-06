@@ -72,7 +72,7 @@ export function Home() {
                                 </Link>
                                 <div className="flex flex-col justify-between flex-1 space-y-2 px-2.5 mb-4">
                                     <Link to={`/product/${product.id}`}>
-                                        <h3 className="font-medium text-xl line-clamp-2">
+                                        <h3 className="font-medium text-xl line-clamp-2 hover:line-clamp-none">
                                             {product.title}
                                         </h3>
                                     </Link>

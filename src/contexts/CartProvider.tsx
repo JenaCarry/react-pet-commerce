@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { CartContext, type CartProps } from "./CartContext";
 import type { ProductProps } from "../pages/home";
 
@@ -6,6 +6,19 @@ type CartProviderProps = { children: ReactNode };
 
 export function CartProvider({ children }: CartProviderProps) {
     const [cart, setCart] = useState<CartProps[]>([]);
+    const [total, setTotal] = useState<number>(0);
+    const [cartAmount, setCartAmount] = useState<number>(0);
+
+    useEffect(() => {
+        const updateTotal = cart.reduce(
+            (acc, item) => acc + item.price * item.amount,
+            0
+        );
+        setTotal(updateTotal);
+
+        const totalAmount = cart.reduce((acc, item) => acc + item.amount, 0);
+        setCartAmount(totalAmount);
+    }, [cart]);
 
     function addItemCart(newItem: ProductProps) {
         setCart((prevCart) => {
@@ -62,14 +75,20 @@ export function CartProvider({ children }: CartProviderProps) {
         );
     }
 
+    function clearOrder() {
+        setCart([]);
+    }
+
     return (
         <CartContext.Provider
             value={{
                 cart,
-                cartAmount: cart.length,
+                cartAmount,
+                total,
                 addItemCart,
                 removeItemCart,
                 deleteItemCart,
+                clearOrder,
             }}
         >
             {children}
