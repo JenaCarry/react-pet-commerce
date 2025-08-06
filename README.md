@@ -6,7 +6,7 @@ Este é um projeto de e-commerce fictício para pets, desenvolvido com **React**
 
 ## 📸 Preview
 
-![Preview do site](https://pet-commerce-orcin.vercel.app/preview.png)
+![Preview do site](/public/screenshot.png)
 
 ## Tecnologias
 
